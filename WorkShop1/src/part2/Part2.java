@@ -19,7 +19,7 @@ public class Part2 {
             System.out.println("Please enter number, not letter!!");
         }
         }
-
+        while(true) {
         System.out.print("Input the operator: ");
         String op = sc.nextLine();
         switch (op) {
@@ -47,6 +47,7 @@ public class Part2 {
                 System.out.println("Invalid operator");
                 break;
             }
+        }
         }
     }
 }

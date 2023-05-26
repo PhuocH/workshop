@@ -13,9 +13,11 @@ public class part3 {
             try {
                 System.out.print("Enter the number of students: ");
                 n = Integer.parseInt(sc.nextLine());
+                if (n < 1)
+                    throw new Exception();
                break;
             } catch (Exception e) {
-                System.out.println("Try again! Don't input character.");
+                System.out.println("Input try again!");
             }
         }
         String[] arr = new String[n];       
