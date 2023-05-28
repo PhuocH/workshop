@@ -16,16 +16,17 @@ public class Part2 {
             try {
                 System.out.print("Input SEXXXXXX: ");
                 String s = sc.nextLine();
-                if (!s.matches(pattern))
+                if (!s.matches(pattern)) {
                     throw new Exception();
-                System.out.println("The string is: " + s);
-                    /*Yêu cầu nhập chuỗi đến khi nào nhập đúng thì vòng lập while sẽ gặp
+                }
+                System.out.println("The string is: " + s.toUpperCase());
+                /*Yêu cầu nhập chuỗi đến khi nào nhập đúng thì vòng lập while sẽ gặp
                 câu lệnh break và dừng nhập lệnh*/
-                    break;
-                }catch (Exception e) {
+                break;
+            } catch (Exception e) {
                 System.out.println("The string was wrong! ");
                 System.out.println("Please re-enter the form SEXXXXXX E.g.(SE123456)");
             }
-            }
         }
     }
+}
