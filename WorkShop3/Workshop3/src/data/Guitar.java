@@ -8,7 +8,7 @@ public class Guitar {
      */
     
     private String serialNumber;        //Đặc điểm của Object
-    double price;                       //Instance variable
+    private double price;               //Instance variable
     private String builder, model;
     private String backWood, topWood;
 

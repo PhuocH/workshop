@@ -26,7 +26,7 @@ public class Tester {
         obj2.setSerialNumber("G124");
         obj2.createSound();
         
-        obj1.setSerialNumber("6"); //obj1 thay đổi mã số là 6 nhưng vì hàm SerialNumber
+//        obj1.setSerialNumber("6"); //obj1 thay đổi mã số là 6 nhưng vì hàm SerialNumber
                                    //có điều kiện nên JVM sẽ giết app nếu 
                                    //không có lệnh try catch (Xử lý ngoại lệ)
     }
