@@ -5,9 +5,14 @@ import TC.IO;
 public class Vase extends Item{
     private int height;
     private String material;
-    
-    
+       
     public Vase() {
+        this.material = "";
+    }
+
+    public Vase(int height, String material) {
+        this.height = height;
+        this.material = material;
     }
 
     public Vase(int height, String material, int value, String creator) {
@@ -39,9 +44,10 @@ public class Vase extends Item{
     
     public void outputVase() {
         super.outputItem();
-        System.out.printf("|%5d|%-8s|\n",
-                            height, material);
+        System.out.println("Height: " + height);
+        System.out.println("Material: " + material);
         System.out.println("================================================================");
+        System.out.println("");
     }
     
     public void inputVase() {

@@ -2,13 +2,12 @@ package AntiqueShop;
 
 import DTO.*;
 import TC.IO;
-import java.util.*;
+
 
 public class AntiqueShop {
     
     public static void main(String[] args) {
-        Item item = null;
-        Scanner sc = new Scanner(System.in);        
+        Item item = null;    
         int op;
         do {
             menu();

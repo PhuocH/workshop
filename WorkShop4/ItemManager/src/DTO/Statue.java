@@ -8,12 +8,18 @@ public class Statue extends Item {
     private String colour;
 
     public Statue() {
+        this.colour = "";
     }
 
-    public Statue(int weight, String coulor, int value, String creator) {
+    public Statue(int weight, String colour) {
+        this.weight = weight;
+        this.colour = colour;
+    }
+
+    public Statue(int weight, String colour, int value, String creator) {
         super(value, creator);
         this.weight = weight;
-        this.colour = coulor;
+        this.colour = colour;
     }
 
     public int getWeight() {
@@ -39,9 +45,10 @@ public class Statue extends Item {
     
     public void outputStatue() {
         super.outputItem();
-        System.out.printf("|%5d|%-8s|\n",
-                            weight, colour);
+        System.out.println("Weight: " + weight);
+        System.out.println("Colour: " + colour);
         System.out.println("================================================================");
+        System.out.println("");
     }
 
     public void inputStatue() {

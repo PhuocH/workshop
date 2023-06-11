@@ -9,6 +9,7 @@ public class Item {
     protected Scanner sc = new Scanner(System.in);
 
     public Item() {
+        this.creator = "";
     }
 
     public Item(int value, String creator) {
@@ -38,8 +39,8 @@ public class Item {
     }
     
     public void outputItem() {
-        System.out.printf("|%5d|%-8s",
-                            value, creator);
+        System.out.println("Value: " + value);
+        System.out.println("Creator: " + creator);
     }
     
     public void inputItem() {        
