@@ -3,35 +3,42 @@ package TC;
 import java.util.Scanner;
 
 public class IO {
-
+    /*Class dùng để bắt các lệnh ngoài lề, những trường hợp không phù hợp với trường
+    đó và yêu cầu nhập lại. Không để JVM giết app.
+    */
+    
     private static Scanner sc = new Scanner(System.in);
 
+    //Hàm dùng để yêu cầu nhập một kiểu dữ liệu số nguyên và báo lỗi in ra dòng báo lỗi 
+    //không phải là số nguyên.
     public static int getAnInteger(String inputMsg, String errorMsg) {
         int n;
         while (true) {
             try {
                 System.out.print(inputMsg);
-                n = Integer.parseInt(sc.nextLine());
+                n = Integer.parseInt(sc.nextLine());   //Nhập n số nguyên và lấy hết những gì là chuỗi ký tự
                 return n;
-            } catch (Exception e) {
-                System.out.println(errorMsg);
+            } catch (Exception e) {                    //Nếu là ký tự sẽ xuống đây và báo lỗi
+                System.out.println(errorMsg);          //yêu cầu nhập lại
             }
         }
     }
 
+    //Hàm dùng để yêu cầu nhập một kiểu dữ liệu số nguyên và báo lỗi in ra dòng báo lỗi
+    //không phải là số nguyên và giới hạn các chặn.
     public static int getAnInteger(String inputMsg, String errorMsg, int lowerBound, int upBound) {
         int n, t;
-        if (lowerBound > upBound) {
-            t = lowerBound;
-            lowerBound = upBound;
-            upBound = t;
+        if (lowerBound > upBound) {             //swap nếu viết code có truyền dữ liệu
+            t = lowerBound;                     //của lowerBound > upBound
+            lowerBound = upBound;               //ví dụ như String inputMsg, String errorMsg, 1, 0
+            upBound = t;                        //thì trường hợp này sẽ đổi lại thành 0, 1
         }
 
         while (true) {
             try {
                 System.out.print(inputMsg);
                 n = Integer.parseInt(sc.nextLine());
-                if (n < lowerBound || n > upBound) {
+                if (n < lowerBound || n > upBound) {    //Nếu ngoài lề thì sẽ xử lý ngoài lề
                     throw new Exception();
                 }
                 return n;
@@ -40,54 +47,22 @@ public class IO {
             }
         }
     }
-
-    public static double getADouble(String inputMsg, String errorMsg) {
-        double n;
-        while (true) {
-            try {
-                System.out.print(inputMsg);
-                n = Double.parseDouble(sc.nextLine());
-            } catch (Exception e) {
-                System.out.println(errorMsg);
-            }
-        }
-    }
-
-    public static double getADouble(String inputMsg, String errorMsg, double lowerBound, double upBound) {
-        double n, t;
-        if (lowerBound > upBound) {
-            t = lowerBound;
-            lowerBound = upBound;
-            upBound = t;
-        }
-
-        while (true) {
-            try {
-                System.out.print(inputMsg);
-                n = Double.parseDouble(sc.nextLine());
-                if (n < lowerBound || n > upBound) {
-                    throw new Exception();
-                }
-                return n;
-            } catch (Exception e) {
-                System.out.println(errorMsg);
-            }
-        }
-    }
-
+ 
+    //Hàm dùng để kiểm tra những trường hợp chỉ nhập true/false. Nếu nhập ngoài true/false
+    //thì báo lỗi và yêu cầu nhập lại
     public static Boolean getBoolean(String inputMsg, String errorMsg) {
-        boolean isValid = false;
+        boolean isValid = false;  
         boolean result = false;
 
         while (!isValid) {
             try {
                 System.out.print(inputMsg);
-                String input = sc.nextLine();
+                String s = sc.nextLine();
 
-                if (input.equalsIgnoreCase("true")) {
+                if (s.equalsIgnoreCase("true")) {
                     result = true;
                     isValid = true;
-                } else if (input.equalsIgnoreCase("false")) {
+                } else if (s.equalsIgnoreCase("false")) {
                     result = false;
                     isValid = true;
                 } else {
@@ -99,7 +74,9 @@ public class IO {
         }
         return result;
     }
-
+    
+    //Hàm dùng để kiểm tra chuỗi nhập vào, không cho phép rỗng, bỏ trống. Nếu có thì
+    //bắt nhập lại chứ không lấy ký tự enter.
     public static String getString(String inputMsg, String errorMsg) {
         String s;
         while (true) {
@@ -112,5 +89,4 @@ public class IO {
             }
         }
     }
-
 }

@@ -13,6 +13,11 @@ public class Guitar {
     private String backWood, topWood;
 
     public Guitar() {
+        this.serialNumber = "";
+        this.builder = "";
+        this.model = "";
+        this.backWood = "";
+        this.topWood = "";
     }
     //Constructor không có dữ liệu => NULL, con trỏ sẽ đưa về dưới đáy RAM.
     

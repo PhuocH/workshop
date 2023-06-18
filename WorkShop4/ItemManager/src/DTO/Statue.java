@@ -3,11 +3,14 @@ package DTO;
 import TC.IO;
 
 public class Statue extends Item {
-
+    /*Class dùng để nhập dữ liệu về Statue bao gồm có đặc điểm
+    cân nặng, màu và là class con của Item.
+    */
     private int weight;
     private String colour;
 
     public Statue() {
+        super();
         this.colour = "";
     }
 
@@ -42,8 +45,9 @@ public class Statue extends Item {
     public String toString() {
         return "Statue{" + "weight=" + weight + ", coulor=" + colour + '}';
     }
-    
+    //Hàm xuất ra dữ liệu Weight và Colour.
     public void outputStatue() {
+        //super output của class Item để có thể nhập những gì bên hàm outputItem.
         super.outputItem();
         System.out.println("Weight: " + weight);
         System.out.println("Colour: " + colour);
@@ -52,8 +56,10 @@ public class Statue extends Item {
     }
 
     public void inputStatue() {
+        //super input của class Item để có thể nhập những gì bên hàm inputItem.
         super.inputItem();
-        weight = IO.getAnInteger("Input the weight: ", "Input the correct value", 0, 2147483647);
+                                  //inputMsg             outputMsg          lowerBound  upBound                              
+        weight = IO.getAnInteger("Input the weight: ", "Input the correct value", 0, 2147483647); //(2147483647 là giới hạn của Integer)
         colour = IO.getString("Input the colour: ", "This field is required!");
         System.out.println("Data import successful!!\n");
         System.out.println("");
