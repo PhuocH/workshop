@@ -90,10 +90,10 @@ public class StudentList extends ArrayList<Student> {
             System.out.println("=============================================");
         } else {
             String keyword = Validation.getID("Input ID(SXXX) to search: ", "Student code must be in format (SXXX)"
-                    + ". X is a digit.", "^(S|s)\\d{3}$");;
+                    + ". X is a digit.", "^(S|s)\\d{3}$");
             Student st = searchObjectStudent(keyword);
             if (st == null) {
-                System.out.println("No one on the list.");
+                System.out.println("The student " + keyword + " doesn't exits.");
             } else {
                 System.out.println("\t\t\t+----+-------------------------+-----+");;
                 System.out.printf("\t\t\t|%-4s|%-25s|%5s|\n",
@@ -134,7 +134,7 @@ public class StudentList extends ArrayList<Student> {
     public void printAll() {
         if (this.isEmpty()) {
             System.out.println("=============================================");
-            System.out.println("No one on the list.");
+            System.out.println("The list is emty.");
             System.out.println("=============================================");
             return;
         }
@@ -169,7 +169,7 @@ public class StudentList extends ArrayList<Student> {
             Student x;
             int choice;
             String code = Validation.getID("Input ID(SXXX) to update: ", "Student code must be in format (SXXX)"
-                    + ". X is a digit.", "^(S|s)\\d{3}$");;
+                    + ". X is a digit.", "^(S|s)\\d{3}$");
             x = searchObjectStudent(code);
             if (x == null) {
                 System.out.println("--------------------------------------");
