@@ -7,7 +7,7 @@ import java.util.Scanner;
  * Integer, Double, ID, String.
  * @author ADMIN
  */
-public class IO {
+public class Validation {
 
     public static Scanner sc = new Scanner(System.in);
 

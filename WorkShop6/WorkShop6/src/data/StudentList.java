@@ -1,7 +1,7 @@
 package data;
 
 import java.util.ArrayList;
-import util.IO;
+import util.Validation;
 import ui.Menu;
 
 /**
@@ -28,7 +28,7 @@ public class StudentList extends ArrayList<Student> {
         String code;
         int pos;
         do {
-            code = IO.getID("Input ID(SXXX): ", "Student code must be in format (SXXX)"
+            code = Validation.getID("Input ID(SXXX): ", "Student code must be in format (SXXX)"
                     + ". X is a digit.", "^(S|s)\\d{3}$");
             pos = searchStudent(code);
             if (pos > -1) {
@@ -36,8 +36,8 @@ public class StudentList extends ArrayList<Student> {
             }
         } while (pos != -1);
 
-        String name = IO.getString("Input name: ", "This field is required!");
-        double mark = IO.getADouble("Input a mark: ", "Only input a mark [0..10].", 0, 10);
+        String name = Validation.getString("Input name: ", "This field is required!");
+        double mark = Validation.getADouble("Input a mark: ", "Only input a mark [0..10].", 0, 10);
         this.add(new Student(code, name, mark));
         System.out.println("Data entered successful!");
     }
@@ -89,7 +89,7 @@ public class StudentList extends ArrayList<Student> {
             System.out.println("The list is emty.");
             System.out.println("=============================================");
         } else {
-            String keyword = IO.getID("Input ID(SXXX) to search: ", "Student code must be in format (SXXX)"
+            String keyword = Validation.getID("Input ID(SXXX) to search: ", "Student code must be in format (SXXX)"
                     + ". X is a digit.", "^(S|s)\\d{3}$");;
             Student st = searchObjectStudent(keyword);
             if (st == null) {
@@ -161,14 +161,14 @@ public class StudentList extends ArrayList<Student> {
             System.out.println("=============================================");
         } else {
             Menu menu = new Menu();
-            menu.addNewOption("1. Upadate for name.");
+            menu.addNewOption("1. Update for name.");
             menu.addNewOption("2. Update for mark.");
             menu.addNewOption("3. Exit.");
             String tName;
             double tMark;
             Student x;
             int choice;
-            String code = IO.getID("Input ID(SXXX) to update: ", "Student code must be in format (SXXX)"
+            String code = Validation.getID("Input ID(SXXX) to update: ", "Student code must be in format (SXXX)"
                     + ". X is a digit.", "^(S|s)\\d{3}$");;
             x = searchObjectStudent(code);
             if (x == null) {
@@ -188,7 +188,7 @@ public class StudentList extends ArrayList<Student> {
                             System.out.println("\t\t\t" + x);
                             System.out.println("\t\t\t+----+-------------------------+-----+");
                             System.out.println("You required input your name");
-                            tName = IO.getString("Input student name: ", "This field is required.");
+                            tName = Validation.getString("Input student name: ", "This field is required.");
                             x.setName(tName);
                             System.out.println("Data updated successful!");
                             break;
@@ -202,7 +202,7 @@ public class StudentList extends ArrayList<Student> {
                             System.out.println("\t\t\t" + x);
                             System.out.println("\t\t\t+----+-------------------------+-----+");
                             System.out.println("You required input your mark");
-                            tMark = IO.getADouble("Input student mark: ", "Only update [0..10]", 0, 10);
+                            tMark = Validation.getADouble("Input student mark: ", "Only update [0..10]", 0, 10);
                             x.setMark(tMark);
                             System.out.println("Data updated successful!");
                             break;
@@ -227,13 +227,13 @@ public class StudentList extends ArrayList<Student> {
             System.out.println("The list is emty.");
             System.out.println("=============================================");
         } else {
-            String code = IO.getID("Input ID(SXXX) to remove: ", "Student code must be in format (SXXX)"
+            String code = Validation.getID("Input ID(SXXX) to remove: ", "Student code must be in format (SXXX)"
                     + ". X is a digit.", "^(S|s)\\d{3}$");
             Student x = searchObjectStudent(code);
             if (x == null) {
                 System.out.println("Student " + code + " doesn't existed.");
             } else {
-                String choice = IO.getID("Are you sure? (Y/N): ", "Only YES(Y) or NO(N) can be selected",
+                String choice = Validation.getID("Are you sure? (Y/N): ", "Only YES(Y) or NO(N) can be selected",
                         "(y|Y|n|N)");
                 if (choice.equalsIgnoreCase("y")) {
                     this.remove(x);

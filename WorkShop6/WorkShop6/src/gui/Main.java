@@ -1,6 +1,5 @@
-package StudentManager;
+package gui;
 
-import data.Student;
 import data.StudentList;
 import ui.Menu;
 
@@ -21,14 +20,14 @@ public class Main {
         menu.addNewOption("3. Update student information.");
         menu.addNewOption("4. Remove a student.");
         menu.addNewOption("5. Print the entire list of students.");
-        
+        menu.addNewOption("6. Exit.");
         int choice;
         StudentList st = new StudentList();
         do {
             menu.printMenu();
             choice = menu.getChoice();
             switch (choice) {
-                case 1:
+                case 1:                    
                     st.addAStudent();
                     break;
                 case 2:

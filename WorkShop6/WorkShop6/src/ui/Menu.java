@@ -1,7 +1,7 @@
 package ui;
 
 import java.util.ArrayList;
-import util.IO;
+import util.Validation;
 
 /**
  * Lớp cho một menu từ 1 lựa chọn và thêm vào danh sách.
@@ -58,6 +58,6 @@ public class Menu {
         //Lựa chọn lớn nhất là số thứ tự ứng với số mục chọn
         String inputMsg = "Choose [1.." + maxOption + "]: ";
         String errorMsg = "You are required to choose the option 1.." + maxOption;
-        return IO.getAnInteger(inputMsg, errorMsg, 1, maxOption);
+        return Validation.getAnInteger(inputMsg, errorMsg, 1, maxOption);
     }
 }
