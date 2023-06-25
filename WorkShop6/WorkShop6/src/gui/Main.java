@@ -29,6 +29,7 @@ public class Main {
             switch (choice) {
                 case 1:                    
                     st.addAStudent();
+//                    st.addAllStudent(); //Add đối tượng có sẵn.
                     break;
                 case 2:
                     st.searchStudent();
